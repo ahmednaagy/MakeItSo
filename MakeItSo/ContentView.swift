@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State
-    private var reminders = Reminder.samples
+    @State private var reminders = Reminder.samples
 
     var body: some View {
         List($reminders) { $reminder in
