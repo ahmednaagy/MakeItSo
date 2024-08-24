@@ -24,19 +24,31 @@ struct AddReminderView: View {
         dismiss()
     }
 
+    private func cancel() {
+        dismiss()
+    }
+
     var body: some View {
         NavigationStack {
             Form {
                 TextField("Add reminder…", text: $reminder.title)
                     .focused($focusedField, equals: .title)
             }
+            .navigationTitle("New Reminder")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: cancel, label: {
+                        Text("Cancel")
+                    })
+                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
                         commit()
                     }) {
                         Text("Add")
                     }
+                    .disabled(reminder.title.isEmpty)
                 }
             }
             .onAppear {
