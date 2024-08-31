@@ -38,9 +38,9 @@ struct AddReminderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(action: cancel, label: {
+                    Button(action: cancel) {
                         Text("Cancel")
-                    })
+                    }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
